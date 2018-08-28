@@ -57,7 +57,7 @@ Yang (2010) have elaborated a strategy on finding a design that satisfies \eqref
 \Psi_{p1}(z_i) &\Psi_{p2}(z_i)&\cdots&\Psi_{pp}(z_i)\\
 \end{array}\right).\]to be denoted as $C_{22}(z)$ $\Psi_k^Q$ is defined as follows. 
 \[\Psi_k^Q = Q^TC_{22}(z)Q\] where $Q$ is a nonzero vector of dimension $p_1\times 1$. 
-hold for \eqref{eq: strategy1} and $\Psi_{k}$ holds for  \eqref{eq: strategy2}.  Here $\Psi_k$ is one of  $\Psi_{ll}, 1\le l \le p$. Note here that when $p_1=1$, $\Psi_k$ and $Q$ are scalar terms. It's straightforward to see that our goal in \eqref{eq: strategy1} and \eqref{eq: strategy2} are now 
+hold for \eqref{eq: strategy1} and $\Psi_{k}$ holds for  \eqref{eq: strategy2}.  Here $\Psi_k$ is one of  $\Psi_{ll}, 1\le l \le p$. Note here that when $p_1=1$, $\Psi_k$ and $Q$ are scalar terms. Let $\Phi_0(z) = 1$. It's straightforward to see that our goal in \eqref{eq: strategy1} and \eqref{eq: strategy2} are now 
 \begin{equation} \label{eq: st1}
 \sum_{i}w_i\Psi_l(z_i)=\sum_{i}\tilde{w_i}\Psi_l(\tilde{z_i}), l=0,1,\ldots, k-1
 \end{equation} and \begin{equation} \label{eq: st2}
@@ -98,7 +98,7 @@ hold for \eqref{eq: strategy1} and $\Psi_{k}$ holds for  \eqref{eq: strategy2}. 
 \Psi_{0}(\tilde{z}_{k+1}) &\Psi_{1}(\tilde{z}_{k+1})&\ldots &-\Psi_{k}^Q(\tilde{z}_{k+1})\\
 \end{array}\right)>0 \] for all $\tilde{z}_i \in [A,B]$. \eqref{eq: tdef1} is the  definition of a Tchebyshev System of $\{\Psi_0(z),\Psi_1(z),\ldots, \Psi_k^Q(z)\}$ on the closed finite interval $[A,B]$ and similarly \eqref{eq: tdef2} is the  definition of a Tchebyshev System of $\{\Psi_0(z),\Psi_1(z),\ldots, -\Psi_k^Q(z)\}$ on the closed finite interval $[A,B]$  \cite{tsys}. 
 
-It's worth mentioning here that by matrix algebra, we can safely multiply each function in $\{\Psi_0(z),\Psi_1(z),\ldots, \Psi_k^Q(z)\}$ by a function $g(z)$ as long as $g(z)>0$ for all $z\in [A,B]$ and that wouldn't change the sign of the determinant. That being said, $\{\Psi_0(z),\Psi_1(z),\ldots, \Psi_k^Q(z)\}$ is a Chebyshev system if and only if $\{\Psi_0(z)g(z),\Psi_1(z)(g),\ldots, \Psi_k^Q(z)(g)\}$ is a Chebyshev system for some function $g(z)>0$ for all $z\in [A,B]$. Also, if we switch the order of the functions in $\{\Psi_0(z),\Psi_1(z),\ldots, \Psi_k^Q(z)\}$, we are actually changing the order of columns in the matrix, which might result in a change of sign in the permuted sequence. Therefore, we need to be careful with the order of the functions in application. 
+It's worth mentioning here that by matrix algebra, the sign of the determinant of the matrix is invariant to certain column operations.  We can safely multiply each function in $\{\Psi_0(z),\Psi_1(z),\ldots, \Psi_k^Q(z)\}$ by a function $g(z)$ as long as $g(z)>0$ for all $z\in [A,B]$ and that wouldn't change the sign of the determinant. That being said, $\{\Psi_0(z),\Psi_1(z),\ldots, \Psi_k^Q(z)\}$ is a Chebyshev system if and only if $\{\Psi_0(z)g(z),\Psi_1(z)(g),\ldots, \Psi_k^Q(z)(g)\}$ is a Chebyshev system for some function $g(z)>0$ for all $z\in [A,B]$. Also, if we switch the order of the functions in $\{\Psi_0(z),\Psi_1(z),\ldots, \Psi_k^Q(z)\}$, we are actually changing the order of columns in the matrix, which might result in a change of sign in the permuted sequence. Therefore, we need to be careful with the order of the functions in application. We can also do column addition. This means that we can work instead on linearly independent terms of  $\{\Psi_0(z),\Psi_1(z),\ldots, \Psi_k^Q(z)\}$, which will be easier forms than original.
 
 
 
@@ -166,7 +166,7 @@ The assumptions:
 The main result of Yang (2012) is as below.
 
 \begin{theorem}\label{2012}
-For a regression model with a single regression variable $x$, let $z\in[A,B]$, $C(\theta,z)$, $\Psi_1,\ldots, \Psi_{k-1}$ and $\Psi_k^Q$ defined above. With  $F(z) = \prod_{l=1}^k f_{l,l}(z)$, suppose that . Then the following complete class results hold:\begin{enumerate}
+For a regression model with a single regression variable $x$, let $z\in[A,B]$, $C(\theta,z)$, $\Psi_1,\ldots, \Psi_{k-1}$ and $\Psi_k^Q$ defined above. With  $F(z) = \prod_{l=1}^k f_{l,l}(z)$, suppose all assumption satisfied above. Then the following complete class results hold:\begin{enumerate}
 \item[(a)] For $k = 2n-1$, if $F(z)>0$, the designs with at most $n$ support points, including B, form a complete class.
 \item[(b)] For $k = 2n-1$, if $-F(z)>0$, the designs with at most $n$ support points, including A, form a complete class.
 \item[(c)] For $k = 2n$, if $F(z)>0$, the designs with at most $n+1$ support points, including both A and B, form a complete class.
@@ -174,14 +174,80 @@ For a regression model with a single regression variable $x$, let $z\in[A,B]$, $
 \end{enumerate}
 \end{theorem}
 
- This strategy has been applied to many models when assumptions are satisfied. However, when the assumptions failed, direct application of \ref{2012} might result in locally optimal designs. 
+ This strategy has been applied to many models when all three assumptions are satisfied. However, there are cases when Assumption (2) and (3) are violated we might run into problems. Take complementary log-log model as an example, which has the model formula $P(y=1|x) = 1-e^{-e^{z}}$, $z\in(-\infty,\infty)$. Following the procedure in \ref{2012}, we have the function sequence \{1,$g(z)$, $zg(z)$,$z^2g(z)$\} and checked the assumption. With Mathematica we can find that assumption (2) and (3) are violated at $z=0.4660$ and $z=0.0491$. Specifically, we can apply condition (a) of \ref{2012} when $F(z) >0$ $z\in (-\infty, 0.0491)$ and condition (b) when $F(z)<0$ for $z\in(0.0491, 0.4660)$ and $(0.4660,\infty$ respectively. It follows that we can only obtain the complete class for three intervals respectively, each with 2 support points. However, Biedermann, et al \cite{biedermann2006} showed that the $\Phi_p$-optimal design for complementary log-log model defined on $(-\infty,\infty$ is supported on 2 points. The previous strategy has yet been able to combine the three separate designs. 
+ 
+ Another example of this situation is the 2-paraemter logistic model which has formula $P(y=1|x,\theta) = \eta(x,\theta)= \frac{1}{e^{-\beta(x-\alpha)}+1}$ where we let $z = \beta(x-\alpha) \in (-\infty, \infty)$ . Following the procedures from \eqref{eq:1} and \eqref{eq:2} , the information matrix based on a design $\xi = \{(z_i,w_i), i=1,\ldots,N\}$ will have the following form: \begin{equation}
+M(\xi) = \sum_{i=1}^{k} w_i \frac{e^z_i}{(1+e^{z_i})^2}P \left( \begin{array}{cc}
+1 & z_i\\
+z_i & z_i^2
+\end{array} \right) P^T,
+\end{equation} where \[P = \left( \begin{array}{cc}
+\beta & 0\\
+0 & -\frac{1}{\beta}
+\end{array} \right).\] \\
+
+Our goal is to find a design $\tilde{\xi} = \{(\tilde{z_i},\tilde{w_i}), i=1,\ldots,n\}$ such that $M(\xi)$ is dominated by $M(\tilde{\xi})$ by Loewner Ordering. Let $\phi(z) = \frac{e^z}{(1+e^{z})^2}$. To achieve this goal, if we could have the off-diagonal terms of both matrices to be equal as follows,
+\begin{equation}\label{eq: beta_eq1}
+\sum_{i=1}^{N} w_i \phi(z_i) = \sum_{i=1}^{n} \tilde{w_i}  \phi(\tilde{z_i}) ,
+\end{equation}
+and
+\begin{equation}\label{eq: beta_eq2}
+\sum_{i=1}^{N} w_i  \phi(z_i)z_i = \sum_{i=1}^{n} \tilde{w_i} \phi(\tilde{z_i}) \tilde{z_i},
+\end{equation}
+then it is sufficient to show that 
+\begin{equation}\label{eq: beta_eq3}
+\sum_{i=1}^{N} w_i \phi(z_i)z_i^2 \le \sum_{i=1}^{n} \tilde{w_i}\phi(\tilde{z_i})\tilde{z_i}^2.
+\end{equation}.
+
+To find solutions to the equations, direct application of \ref{2012} will also run into problems. Following the procedure of \ref{2012a},we need to show \{$1$ ,$ \phi(z)$, $z\phi(z)$, and $z^2\phi(z)$\} is a Chebyshev System. Also $\phi(z)>0$ holds for all $z$, therefore we can divide each term by $\phi(z)$ and move $1/\phi(z)$ to the last position (the sign changed) without loss of generality. The sequence is then equivalent to $\Psi_0(z) = 1$ , $\Psi_1(z) = z$ , $\Psi_2(z) = z^2$ , $\Psi_3(z) = -1/\phi(z)$. Calculation of $f_{l,l}(z)$, $l=1,2,3$ shows that $f_{1,1}(z) = 1$, $f_{2,2}(z) = 2$, $f_{3,3}(z) = -3 (1 + e^z) + e^{-z} (1 + e^z)^2/2 + 
+ 3 e^{-z} (2 e^{2 z} + 2 e^z (1 + e^z))/2 - 
+ e^{-z} (6 e^{2 z} + 2 e^z (1 + e^z))/2 $.  \[F(z) = -6 (1 + e^z) + e^{-z} (1 + e^z)^2 + 
+ 3 e^{-z} (2 e^{2 z} + 2 e^z (1 + e^z)) - 
+ e^{-z} (6 e^{2 z} + 2 e^z (1 + e^z))\]
+ \begin{figure}[h]
+     \centering
+     \includegraphics[scale = 0.5]{logistic.png}
+     \caption{$F(z)$ for 2-parameter logistic model}
+     \label{fig:logistic}
+ \end{figure}
+ Apparently, third assumption is not satisfied throughout $(-\infty,\infty)$ since $F(0)=0$, but we do get results for $(-\infty,0)$ and $(0,\infty)$ separately. Specifically for $z>0$, $F(z) <0$, and for $z<0$, $F(z) >0$. To get around this hurdle, we could apply \ref{2012} for $z\in[\epsilon, \infty)$ and $z\in(-\infty,-\epsilon]$, $\epsilon>0$,respectively. Here $k=3$. For $z\in[\epsilon, \infty)$, $\epsilon>0$, $F(z)<0$,  designs with 2 support points including $\epsilon$ form a complete class. For $z\in(-\infty,-\epsilon]$, $\epsilon>0$, $F(z)>0$,designs with 2 support points including $-\epsilon$ form a complete class. As $\epsilon\to 0$, the optimal design for each side of $0$ will be \{0,$x_1>0$\} and \{0,$x_2<0$\}. On the other hand Biederman (2006) was able to show that 2- parameter logistic regression defined on $(-\infty,\infty)$ has $\Phi_p$-optimal design with 2 support points.
+ 
+ We try to work with the function sequence \{$1$ ,$\phi(z)$, $z\phi(z)$, and $z^2\phi(z)$\} and insert some ancillary functions. Here we insert $1/(1+e^z)^2$ in front of $1$. We then are actually now working with equations 
+ 
+\begin{equation}\label{eq: log_eq1}
+\sum_{i=1}^{N} w_i \frac{1}{(1+e^{z_i})^2} = \sum_{i=1}^{n} \tilde{w_i}  \frac{1}{(1+e^{\tilde{z_i}})^2} ,
+\end{equation}
+
+\begin{equation}\label{eq: log_eq2}
+\sum_{i=1}^{N} w_i  = \sum_{i=1}^{n} \tilde{w_i}  ,
+\end{equation}
+
+\begin{equation}\label{eq: log_eq3}
+\sum_{i=1}^{N} w_i \phi(z_i) = \sum_{i=1}^{n} \tilde{w_i}  \phi(\tilde{z_i}) ,
+\end{equation}
+
+\begin{equation}\label{eq: log_eq4}
+\sum_{i=1}^{N} w_i  \phi(z_i)z_i = \sum_{i=1}^{n} \tilde{w_i} \phi(\tilde{z_i}) \tilde{z_i},
+\end{equation}
+
+\begin{equation}\label{eq: log_eq5}
+\sum_{i=1}^{N} w_i \phi(z_i)z_i^2 \le \sum_{i=1}^{n} \tilde{w_i}\phi(\tilde{z_i})\tilde{z_i}^2.
+\end{equation}.Note here that \ref{eq: log_eq2} is also inherent in \ref{eq: beta_eq1}-\ref{eq: beta_eq3} since $\xi$ and $\tilde{\xi}$ are both designs. Since we now have one extra \ref{eq: log_eq1} in the equation system \ref{eq: log_eq1}-\ref{eq: log_eq5} will have solutions that also satisfy \ref{eq: beta_eq1}-\ref{eq: beta_eq3}, but will most certainly include more $(\tilde{z_i},\tilde{w_i})$. In this sense, the insertion of some  "ancillary" functions will not affect the validity of the solution, although it may most likely include more support points than we desired.
+
+Now that we have a "bigger" design, we'll see how the ancillary functions may help with the violated assumptions. We are now working with \{$1/(1+e^z)^2$, $1$ ,$\phi(z)$, $z\phi(z)$, and $z^2\phi(z)$\}. We can do a similar trick of multiplying each function with $(1+e^z)^2>0$ , take linearly independent terms and check if  \{$1$, $e^{2z}$ ,$e^z$, $ze^z$, $z^2e^z$\} is a Chebyshev system. We then proceed to use \ref{2012} and have $f_{1,1}(z) = 2e^{2z}$, $f_{2,2}(z) = -e^{-z}/2$,$f_{3,3}(z) = 1$,$f_{4,4}(z) = 2$, and $f(z) = -2e^z<0$ for $z\in(-\infty,\infty)$. Now we can safely apply \ref{2012} on $[-A,B]$ for any  $A,B>0$. Luckily, we have that designs with at most 2 support points form a complete class. \\
+
+
+
+
+%  In Yang (2009), the author managed to "combine" optimal designs of the two sides, using the fact that $\phi(z)$ is an even function, and there exist a complete class of 2 support-point design, in which the two point are symmetric about $0$. The author also managed to show the same strategy used in finding design with two symmetric point for 2-parameter probit model. For double exponential and double reciprocal model, the author showed there exist a complete class of 3 support that contains 0 and two symmetric points. All results are based on the symmetry of the above models.
+ 
+
+
+We have now seen from the 2-parameter logistic model that use of ancillary functions ($1/(1+e^z)^2)$ helped solve the problem of assumption violation. We now formally introduce the use of ancillary functions for general models. 
+
  
  
- Suppose for a model defined on $[A,B]$, we have derived $f_{l,l}(z)$, $1\le l\le k-1$ and found that there exist $z^*\in[A,B]$ such that $f_{l_1,l_1}(z^*) = 0$, $1\le l_1\le k-1$. Assume for $1\le l\ne l_1\le k-1$, $f_{l,l}(z)$ has no roots in $[A,B]$, and that $F(z)>0$ when $z\in (z^*,B]$ , $F(z)<0$ when $z\in [A,z^*)$. Through the above result, for all values of $\epsilon >0 $, we can obtain two complete class for $ [A,z^*-\epsilon]$ and $[z^*+\epsilon,B]$ separately. Combining the two complete class can be tricky and really restricted to certain types of models. Another limitation of this result is that it only focuses on models defined on closed interval $[A,B]$. Assumption (2) also requires the functions $f_{l,l}(z)$ have no roots in $[A,B]$. In certain cases of \ref{2012}, $A$ or $B$ are allowed to be $\pm\infty$. For example, in case (a), $A$ is allowed to be $-\infty$. In many other cases, we want to apply \ref{2012} to models defined on finite open intervals. In that case property of the model near the boundary points needs to be carefully examined.
-
-This paper aims to overcome the two limitations and extend the application of this strategy to broader range of models. We'll demonstrate the two limitations in the following 2-parameter logistic model and attend to theoretical results in the next section. 
-
-To tackle the failed assumptions, we propose a method that insert ancillary functions into the sequence \{$\Psi_l(z), l=1,\ldots, k$ \}. Before getting to examples, we will explain how ancillary functions work and provide justification. For nonlinear model $E(y) = \eta(x,\theta)$, let $S_1 = \{\Psi_1(z), \ldots,\Psi_{k-1}(z) ,\Psi_k^Q(z)\}$ be functions defined above. Insert $ S_2 =\{\phi^*_1(z), \phi^*_2(z),\ldots, \phi^*_{k_1}(z)\}$ to $S_1$ before  $\Psi_k^Q(z)$. (The order of the terms in $S_1$ remains unchanged). Here $S_2$ are mutually linearly independent and independent of  $S_1$ element-wise. Denote the new sequence as  $S_3 = $\{$\tilde{\Psi}_1(z), \ldots,\tilde{\Psi}_{k+k_1-1}(z)$, $\tilde{\Psi}_{k+k_1}^Q(z)$\}. Let $\tilde{\Psi}_0(z) = 1$. Consider the new sequence $S_3$ as the function sequence used in \eqref{eq: st1} and \eqref{eq: st2}, we will have (ignoring the order) \begin{equation}\label{eq: added1}
+For nonlinear model $E(y) = \eta(x,\theta)$, let $S_1 = \{\Psi_1(z), \ldots,\Psi_{k-1}(z) ,\Psi_k^Q(z)\}$ be functions defined above. Insert $ S_2 =\{\phi^*_1(z), \phi^*_2(z),\ldots, \phi^*_{k_1}(z)\}$ to $S_1$ before  $\Psi_k^Q(z)$. (The order of the terms in $S_1$ remains unchanged). Here $S_2$ are mutually linearly independent and independent of  $S_1$ element-wise. Denote the new sequence as  $S_3 = $\{$\tilde{\Psi}_1(z), \ldots,\tilde{\Psi}_{k+k_1-1}(z)$, $\tilde{\Psi}_{k+k_1}^Q(z)$\}. Let $\tilde{\Psi}_0(z) = 1$. Consider the new sequence $S_3$ as the function sequence used in \eqref{eq: st1} and \eqref{eq: st2}, we will have (ignoring the order) \begin{equation}\label{eq: added1}
 \sum_{i}w_i\Psi_l(z_i)=\sum_{i}\tilde{w_i}\Psi_l(\tilde{z_i}), l=0,1,\ldots, k-1    
 \end{equation}
 \begin{equation}\label{eq: added2}
@@ -189,11 +255,8 @@ To tackle the failed assumptions, we propose a method that insert ancillary func
 \end{equation}and \begin{equation}\label{eq: added3}
 \sum_{i}w_i\Psi_k^Q(z_i)<\sum_{i}\tilde{w_i}\Psi_k^Q(\tilde{z_i}) \text{  for every nonzero vector Q}.
 \end{equation} 
-Note we now have $k_1$ more equations, that often require more design points $(\tilde{z}_i, \tilde{w}_i)$. The design $\tilde{\xi}$ defined by \eqref{eq: added1}-\eqref{eq: added2} also satisfy \eqref{eq: st1}-\eqref{eq: st2}.  Specifically, when $k_1 = 1$ and $\phi^*_1(z)=1$, Equation \eqref{eq: added2} is \begin{equation}
-\sum_{i}w_i=\sum_{i}\tilde{w_i}.  
-\end{equation} Since $\xi = \{(z_i,w_i), i=1,\ldots, N\}$ and $\tilde{\xi} = \{(\tilde{z_i},\tilde{w_i}), i=1,\ldots, n\}$ both form designs, we have $\sum_i{w_i} = \sum_i{\tilde{w}_i}=1$ already. This means adding 1 to $S_1$ will not incur a bigger design.
-Also note that the inequalities \eqref{eq: added1}- \eqref{eq: added3} still hold if all functions in the sequence are multiplied by the same positive term. 
-Therefore, the function sequence with ancillary functions will still lead to a complete class of designs that is "optimal" in terms of Loewner Ordering. The new design may or may not be minimally supported.
+
+Therefore, the function sequence with ancillary functions will still lead to a complete class of designs that is "optimal" in terms of Loewner Ordering. The new design may have to include more support points than desired. However, we'll show in next section that for some models, the "extra" points can actually be removed.
 
 Since all original $\Psi$ functions are from information matrix $C(\theta,z)$, the extended function sequence also suggests an "enlarged" information matrix $\tilde{C}(\theta,z)$. What we do is to add rows and columns to $C(\theta,z)$ and fill in the ancillary function symmetrically. Consider $k_1\le p+1$, we can write \begin{equation}
    \tilde{C}(\theta,z) = \left ( \begin{array}{c|ccccc}
@@ -220,90 +283,63 @@ When $ p+1< k_1 \le2p+3$, we can write\begin{equation}
 
 
 
-
 %\begin{theorem}(show that ancillary terms doesn't change inequality and how many more support points will be added according to the number of ancillary functions added)
 %For nonlinear model $E(y) = \eta(x,\theta)$, let $\Psi_1, \ldots,\Psi_{k-1}$ and $\Psi_k^Q(z)$ be functions defined above. Add $\phi^*_1(z), \phi^*_2(z),\ldots, \phi^*_{k_1}(z)$ to the function sequence before  $\Psi_k^Q(z)$. Here  $\phi^*_1(z), \phi^*_2(z),\ldots, \phi^*_{k_1}(z)$ are mutually linearly independent and independent of   $\Psi_1, \ldots,\Psi_{k-1}$ and $\Psi_k^Q(z)$ (element-wise). Denote the new sequence as  \{$\tilde{\Psi_1}, \ldots,\tilde{\phi}_{k+k_1-1}, \tilde{\phi}_{k+k_1}^Q(z)$\}. Let $\tilde{\phi}_0(z) = 1$. \\
 
 %If we have \begin{equation}\label{cheby+}\{\tilde{\phi}_0(z), \tilde{\phi}_1(z), \ldots,\tilde{\phi}_{k+k_1-1}(z)\}  \text{ and }  \{\tilde{\phi}_0(z), \tilde{\phi}_1(z), \ldots,\tilde{\phi}_{k+k_1-1}(z), \tilde{\phi}_{k+k_1}^Q(z)\}  \end{equation} form Chebyshev systems for every nonzero vector $Q$ or \begin{equation}\label{cheby-} \{\tilde{\phi}_0(z), \tilde{\phi}_1(z), \ldots,\tilde{\phi}_{k+k_1-1}(z)\}  \text{ and }   \{\tilde{\phi}_0(z), \tilde{\phi}_1(z), \ldots,\tilde{\phi}_{k+k_1-1}(z), -\tilde{\phi}_{k+k_1}^Q(z)\}  \end{equation}form Chebyshev systems for every nonzero vector $Q$.\\	\end{theorem}
 
- \subsection{2-parameter Logistic model}
-
-In dose-response studies, logistic model is one important model. Here we consider a 2-parameter logistic model of the following form 
-\[
-P(y=1|x,\theta) = \eta(x,\theta)= \frac{1}{e^{-\beta(x-\alpha)}+1}.
-\]
- Here $x$ is measurement of dose level. Consider $x\in (-\infty,\infty)$. Let $z = \beta(x-\alpha)$, and we know $z\in (-\infty,\infty)$.Consider range of $z$ to be $[-\epsilon,+\epsilon]$ for $\epsilon>0$. The information matrix based on a design $\xi = \{(z_i,w_i), i=1,\ldots,N\}$ will have the following form: \begin{equation}
-M(\xi) = \sum_{i=1}^{k} w_i \frac{e^z_i}{(1+e^{z_i})^2}P \left( \begin{array}{cc}
-1 & z_i\\
-z_i & z_i^2
-\end{array} \right) P^T,
-\end{equation} where \[P = \left( \begin{array}{cc}
-\beta & 0\\
-0 & -\frac{1}{\beta}
-\end{array} \right).\] \\
-
-Our goal is to find a design $\tilde{\xi} = \{(\tilde{z_i},\tilde{w_i}), i=1,\ldots,n\}$ such that $M(\xi)$ is dominated by $M(\tilde{\xi})$ by Loewner Ordering, which means \[det(M(\tilde{\xi})-M(\xi))>0.\] Let $\phi(z) = \frac{e^z}{(1+e^{z})^2}$. To achieve this goal, if we could have the off-diagonal terms of both matrices to be equal as follows,
-\begin{equation}\label{eq: beta_eq1}
-\sum_{i=1}^{N} w_i \phi(z_i) = \sum_{i=1}^{n} \tilde{w_i}  \phi(\tilde{z_i}) ,
-\end{equation}
-and
-\begin{equation}\label{eq: beta_eq2}
-\sum_{i=1}^{N} w_i  \phi(z_i)z_i = \sum_{i=1}^{n} \tilde{w_i} \phi(\tilde{z_i}) \tilde{z_i},
-\end{equation}
-then it is sufficient to show that 
-\begin{equation}\label{eq: beta_eq3}
-\sum_{i=1}^{N} w_i \phi(z_i)z_i^2 \le \sum_{i=1}^{n} \tilde{w_i}\phi(\tilde{z_i})\tilde{z_i}^2.
-\end{equation}.\\
-
-Along the lines of Yang (2012), to prove equations \eqref{eq: beta_eq1}-\eqref{eq: beta_eq3}, we need to find linearly independent function sequence first. Since we only have 3 unique terms in $M(\xi)$, $\phi(z)$, $z\phi(z)$, and $z^2\phi(z)$. Also $\phi(z)>0$ holds for all $z$.  We can divide each term by $\phi(z)$. The sequence is then equivalent to $\Psi_0(z) = 1$ , $\Psi_1(z) = z$ , $\Psi_2(z) = z^2$ , $\Psi_3(z) = -1/\phi(z)$. Calculation of $f_{l,l}(z)$, $l=1,2,3$ shows that $f_{1,1}(z) = 1$, $f_{2,2}(z) = 2$, $f_{3,3}(z) = -3 (1 + e^z) + e^{-z} (1 + e^z)^2/2 + 
- 3 e^{-z} (2 e^{2 z} + 2 e^z (1 + e^z))/2 - 
- e^{-z} (6 e^{2 z} + 2 e^z (1 + e^z))/2 $.  \[F(z) = -6 (1 + e^z) + e^{-z} (1 + e^z)^2 + 
- 3 e^{-z} (2 e^{2 z} + 2 e^z (1 + e^z)) - 
- e^{-z} (6 e^{2 z} + 2 e^z (1 + e^z))\]
- \begin{figure}[h]
-     \centering
-     \includegraphics[scale = 0.5]{logistic.png}
-     \caption{$F(z)$ for 2-parameter logistic model}
-     \label{fig:logistic}
- \end{figure}
- Second assumption is not satisfied and $F(0) = 0$. Specifically for $z>0$, $F(z) <0$, and for $z<0$, $F(z) >0$. Direct use of the the previous method is not feasible for $z\in (-\infty, \infty)$. To get around this hurdle, we could apply \ref{2012} for $z\in[\epsilon, \infty)$ and $z\in(-\infty,-\epsilon]$, $\epsilon>0$,respectively. Here $k=3$. For $z\in[\epsilon, \infty)$, $\epsilon>0$, $F(z)<0$,  designs with 2 support points including $\epsilon$ form a complete class. For $z\in(-\infty,-\epsilon]$, $\epsilon>0$, $F(z)>0$,designs with 2 support points including $-\epsilon$ form a complete class. As $\epsilon\to 0$, the optimal design for each side of $0$ will be \{0,$x_1>0$\} and \{0,$x_2<0$\}. In Yang (2009), the author managed to "combine" optimal designs of the two sides, using the fact that $\phi(z)$ is an even function, and there exist a complete class of 2 support-point design, in which the two point are symmetric about $0$. The author also managed to show the same strategy used in finding design with two symmetric point for 2-parameter probit model. For double exponential and double reciprocal model, the author showed there exist a complete class of 3 support that contains 0 and two symmetric points. All results are based on the symmetry of the above models.
  
- We have seen that with model symmetry, the failed assumption can be circumvented. In most of the cases, it would be tricky do the "combination" of designs. Here we'll show the minimally supported optimal design logistic model using ancillary functions. Consider the original sequence with 1 added as ancillary function \{1, $\phi(z)$, $z\phi(z)$, $z^2\phi(z)$\}. Since $(1+e^{z})^2$, multiply each term by $(1+e^{z})^2$ and we have sequence \{$e^{2z}+2e^z+1$, $e^z$, $ze^z$, $z^2e^z$\}. Add an additional 1 as ancillary function in front of the first function. Taking the linearly independent terms, let $\Psi_0(z) = 1$,  $\Psi_1(z) = e^{2z}$,  $\Psi_2(z) = e^z$, $\Psi_3(z) = ze^z$,$\Psi_4(z) = z^2e^z$. The expanded $C(\theta,z)$ will be \[ \tilde{C}^*(\theta,z) = \phi(z)\left(\begin{array}{ccc}
-1 &e^{2z}&0\\
-e^{2z}&e^z & ze^z\\
-0& ze^z & z^2e^z
-\end{array} \right).\]Note now $k=4$. Calculate $f_{l,l}(z), l=1,\ldots, 4$, we have $f_{1,1}(z) = 2e^{2z}$, $f_{2,2}(z) = -e^{-z}/2$ , $f_{3,3}(z) = 1$, $f_{4,4}(z) = 2$. As s result $F(z)<0$ for $z\in (-\infty, \infty)$. We have condition (d) satisfied and the designs with at most 2 support points form a complete class. This result is consistent with the conclusion in Yang (2009). \\
+
+%  The expanded $C(\theta,z)$ will be \[ \tilde{C}^*(\theta,z) = \phi(z)\left(\begin{array}{ccc}
+% 1 &e^{2z}&0\\
+% e^{2z}&e^z & ze^z\\
+% 0& ze^z & z^2e^z
+% \end{array} \right).\]Note now $k=4$. Calculate $f_{l,l}(z), l=1,\ldots, 4$, we have $f_{1,1}(z) = 2e^{2z}$, $f_{2,2}(z) = -e^{-z}/2$ , $f_{3,3}(z) = 1$, $f_{4,4}(z) = 2$. As s result $F(z)<0$ for $z\in (-\infty, \infty)$. We have condition (d) satisfied and the designs with at most 2 support points form a complete class. This result is consistent with the conclusion in Yang (2009). \\
  
- We have seen in 2-parameter logistic model of how ancillary functions can help circumvent the assumptions of \ref{2012}. We will present the main results in the next section and show its application in more models in the following sections.
+ We have seen in 2-parameter logistic model of how ancillary functions can help solve the violated assumptions of \ref{2012}. We will present the main results in the next section and show its application in more models in the following sections.
+ 
+ 
+
+
 
 \section{Main Results}
-We have shown in the 2-parameter logistic model that our strategy are able to deal with the failed assumptions. Before getting to the details of ancillary functions, we will justify the extension to models defined on open interval first. In Yang (2010) and Yang 2012), the results all focused on models defined on closed intervals. The following result shows that we will not have issue of "non-informative " support points with models defined on closed interval. This is not the case when extended to open intervals. 
+% We have shown in the 2-parameter logistic model that our strategy are able to deal with the failed assumptions. Before getting to the details of ancillary functions, we will justify the extension to models defined on open interval first. In Yang (2010) and Yang 2012), the results all focused on models defined on closed intervals. The following result shows that we will not have issue of "non-informative " support points with models defined on closed interval. This is not the case when extended to open intervals. 
 
-\begin{lemma}(Models defined on $[A,B]$ cannot have an optimal design that includes support point $I(A)$ or $I(B) =0$)
+% \begin{lemma}(Models defined on $[A,B]$ cannot have an optimal design that includes support point $I(A)$ or $I(B) =0$)
 
-Suppose we have a nonlinear regression model that is defined on $[A,B]$. Information matrix are defined as \eqref{eq:1} and \eqref{eq:2}. Suppose there exist $z^*\in [A,B]$ such that $I(z^*)=0$, the optimal design decided by Loewner ordering will not include that point.
-\end{lemma}
+% Suppose we have a nonlinear regression model that is defined on $[A,B]$. Information matrix are defined as \eqref{eq:1} and \eqref{eq:2}. Suppose there exist $z^*\in [A,B]$ such that $I(z^*)=0$, the optimal design decided by Loewner ordering will not include that point.
+% \end{lemma}
 
-Since our previous strategy tends to provide optimal design class that includes one or two boundary points, to extend our realm into open intervals, we also need the following definition that classifies 4 types of models in terms of their properties on the boundary points. The following lemma will have us identify the four types of model.
-\begin{definition} We categorize models defined on $(A,B)$ into the following 4 types\begin{enumerate}
-    \item Type I: $\lim_{z\to A}I(z)=0$ and $\lim_{z\to B}I(z)\ne 0$
-    \item Type II: $\lim_{z\to A}I(z)\ne 0$ and $\lim_{z\to B}I(z)=0$
-    \item Type III: $\lim_{z\to A}I(z)= 0$ and $\lim_{z\to B}I(z)=0$
-    \item Type IV: $\lim_{z\to A}I(z)\ne 0$ and $\lim_{z\to B}I(z)\ne0$
-\end{enumerate}
-\end{definition}
+% Since our previous strategy tends to provide optimal design class that includes one or two boundary points, to extend our realm into open intervals, we also need the following definition that classifies 4 types of models in terms of their properties on the boundary points. The following lemma will have us identify the four types of model.
+% \begin{definition} We categorize models defined on $(A,B)$ into the following 4 types\begin{enumerate}
+%     \item Type I: $\lim_{z\to A}I(z)=0$ and $\lim_{z\to B}I(z)\ne 0$
+%     \item Type II: $\lim_{z\to A}I(z)\ne 0$ and $\lim_{z\to B}I(z)=0$
+%     \item Type III: $\lim_{z\to A}I(z)= 0$ and $\lim_{z\to B}I(z)=0$
+%     \item Type IV: $\lim_{z\to A}I(z)\ne 0$ and $\lim_{z\to B}I(z)\ne0$
+% \end{enumerate}
+% \end{definition}
 
-\begin{lemma} For nonlinear models with response $E(Y) = \eta(\theta,z)$, $z\in (A,B)$. If there exist $z^*\in [A,B]$ such that \[\lim_{z\to z^*}(\frac{\partial\eta(\theta,z)}{\partial \theta}) = 0\]
-then $\lim_{z\to z^*}I(\theta,z)=0$
-\begin{proof}
-Binary response
-\[\lim_{z\to z^*}I(\theta,z) = \lim_{z\to z^*}\frac{(\frac{\partial\eta(\theta,z)}{\partial \theta})(\frac{\partial\eta(\theta,z)}{\partial \theta})^T}{\eta(\theta,z)(1-\eta(\theta,z))} = 0\]
+% \begin{lemma} For nonlinear models with response $E(Y) = \eta(\theta,z)$, $z\in (A,B)$. If there exist $z^*\in [A,B]$ such that \[\lim_{z\to z^*}(\frac{\partial\eta(\theta,z)}{\partial \theta}) = 0\]
+% then $\lim_{z\to z^*}I(\theta,z)=0$
+% \begin{proof}
+% Binary response
+% \[\lim_{z\to z^*}I(\theta,z) = \lim_{z\to z^*}\frac{(\frac{\partial\eta(\theta,z)}{\partial \theta})(\frac{\partial\eta(\theta,z)}{\partial \theta})^T}{\eta(\theta,z)(1-\eta(\theta,z))} = 0\]
 
 
-%  Continuous response
-%  \[\lim_{z\to z^*}I(\theta,z) = \lim_{z\to z^*}(\frac{\partial\eta(\theta,z)}{\partial \theta})(\frac{\partial\eta(\theta,z)}{\partial \theta})^T = 0\]
- \end{proof}
- \end{lemma}
+% %  Continuous response
+% %  \[\lim_{z\to z^*}I(\theta,z) = \lim_{z\to z^*}(\frac{\partial\eta(\theta,z)}{\partial \theta})(\frac{\partial\eta(\theta,z)}{\partial \theta})^T = 0\]
+%  \end{proof}
+%  \end{lemma}
+ 
+ 
+  
+ ========================================================\\
+ ===============  border of revision ======================\\
+ ======================================================
+ 
+ 
+
+ 
 
 We now are able to extend the conclusion in \ref{2012} to models defined on open interval $(A,B)$ under following assumptions. \begin{enumerate}
 \item All functions $\Psi$ in the information matrix $C(\theta,z)$ are at least $k$th order differentiable on $(A,B)$.
