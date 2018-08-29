@@ -63,7 +63,8 @@ hold for \eqref{eq: strategy1} and $\Psi_{k}$ holds for  \eqref{eq: strategy2}. 
 \end{equation} and \begin{equation} \label{eq: st2}
 \sum_{i}w_i\Psi_k^Q(z_i)<\sum_{i}\tilde{w_i}\Psi_k^Q(\tilde{z_i}) \text{  for every nonzero vector Q}
 \end{equation} 
-\subsection{Chebyshev System}We can see that in \eqref{eq: st1} and \eqref{eq: st2},  there is an equivalent matrix form for some $\epsilon>0$ with respect to a given design $S_1 = \{(z_i, w_i), i=1,..,n\} $, and a target design  $S_2 = \{(\tilde{z}_i, \tilde{w}_i), i=1,..,n\}$
+\subsection{The Chebyshev System}
+We can see that in \eqref{eq: st1} and \eqref{eq: st2},  there is an equivalent matrix form for some $\epsilon>0$ with respect to a given design $S_1 = \{(z_i, w_i), i=1,..,n\} $, and a target design  $S_2 = \{(\tilde{z}_i, \tilde{w}_i), i=1,..,n\}$
 \begin{equation}\label{eq: tsys1}
 \left ( \begin{array}{cccc}
 
@@ -143,7 +144,8 @@ For a regression model with a single regression variable $x$, suppose that the i
 \end{enumerate}
 \end{theorem}
 
-\subsection{The sufficient condition: result of yang 2010}
+\subsection{The sufficient condition: Result of Yang(2010)}
+
 Now that we have found a sufficient condition for \eqref{eq: st1} and  \eqref{eq: st2}, and a tool \ref{2012a}, we are able to identify the complete class for the designs. However, to prove that a sequence of a function is Chebyshev system is not easy. To do that, Yang (2012) proposed the following tools and developed a sufficient condition.
 
  Define functions $f_{l,t}, 1\le t \le k$; $t\le l \le k$ as follows
@@ -174,7 +176,7 @@ For a regression model with a single regression variable $x$, let $z\in[A,B]$, $
 \end{enumerate}
 \end{theorem}
 
- This strategy has been applied to many models when all three assumptions are satisfied. However, there are cases when Assumption (2) and (3) are violated we might run into problems. Take complementary log-log model as an example, which has the model formula $P(y=1|x) = 1-e^{-e^{z}}$, $z\in(-\infty,\infty)$. Following the procedure in \ref{2012}, we have the function sequence \{1,$g(z)$, $zg(z)$,$z^2g(z)$\} and checked the assumption. With Mathematica we can find that assumption (2) and (3) are violated at $z=0.4660$ and $z=0.0491$. Specifically, we can apply condition (a) of \ref{2012} when $F(z) >0$ $z\in (-\infty, 0.0491)$ and condition (b) when $F(z)<0$ for $z\in(0.0491, 0.4660)$ and $(0.4660,\infty$ respectively. It follows that we can only obtain the complete class for three intervals respectively, each with 2 support points. However, Biedermann, et al \cite{biedermann2006} showed that the $\Phi_p$-optimal design for complementary log-log model defined on $(-\infty,\infty$ is supported on 2 points. The previous strategy has yet been able to combine the three separate designs. 
+ This strategy has been applied to many models when all three assumptions are satisfied. However, there are cases when Assumption (2) and (3) are violated we might run into problems. Take complementary log-log model as an example, which has the model formula $P(y=1|x) = 1-e^{-e^{z}}$, $z\in(-\infty,\infty)$. Following the procedure in \ref{2012}, we have the function sequence \{1,$g(z)$, $zg(z)$,$z^2g(z)$\} ,$g(z)=\frac{e^{2z}}{e^{e^z}-1}$, and checked the assumption. With Mathematica we can find that assumption (2) and (3) are violated at $z=0.4660$ and $z=0.0491$. Specifically, we can apply condition (a) of \ref{2012} when $F(z) >0$ $z\in (-\infty, 0.0491)$ and condition (b) when $F(z)<0$ for $z\in(0.0491, 0.4660)$ and $(0.4660,\infty$ respectively. It follows that we can only obtain the complete class for three intervals respectively, each with 2 support points. However, Biedermann, et al \cite{biedermann2006} showed that the $\Phi_p$-optimal design for complementary log-log model defined on $(-\infty,\infty$ is supported on 2 points. The previous strategy has yet been able to combine the three separate designs. 
  
  Another example of this situation is the 2-paraemter logistic model which has formula $P(y=1|x,\theta) = \eta(x,\theta)= \frac{1}{e^{-\beta(x-\alpha)}+1}$ where we let $z = \beta(x-\alpha) \in (-\infty, \infty)$ . Following the procedures from \eqref{eq:1} and \eqref{eq:2} , the information matrix based on a design $\xi = \{(z_i,w_i), i=1,\ldots,N\}$ will have the following form: \begin{equation}
 M(\xi) = \sum_{i=1}^{k} w_i \frac{e^z_i}{(1+e^{z_i})^2}P \left( \begin{array}{cc}
@@ -296,9 +298,6 @@ When $ p+1< k_1 \le2p+3$, we can write\begin{equation}
 % 0& ze^z & z^2e^z
 % \end{array} \right).\]Note now $k=4$. Calculate $f_{l,l}(z), l=1,\ldots, 4$, we have $f_{1,1}(z) = 2e^{2z}$, $f_{2,2}(z) = -e^{-z}/2$ , $f_{3,3}(z) = 1$, $f_{4,4}(z) = 2$. As s result $F(z)<0$ for $z\in (-\infty, \infty)$. We have condition (d) satisfied and the designs with at most 2 support points form a complete class. This result is consistent with the conclusion in Yang (2009). \\
  
- We have seen in 2-parameter logistic model of how ancillary functions can help solve the violated assumptions of \ref{2012}. We will present the main results in the next section and show its application in more models in the following sections.
- 
- 
 
 
 
@@ -309,15 +308,16 @@ When $ p+1< k_1 \le2p+3$, we can write\begin{equation}
 
 % Suppose we have a nonlinear regression model that is defined on $[A,B]$. Information matrix are defined as \eqref{eq:1} and \eqref{eq:2}. Suppose there exist $z^*\in [A,B]$ such that $I(z^*)=0$, the optimal design decided by Loewner ordering will not include that point.
 % \end{lemma}
-
-% Since our previous strategy tends to provide optimal design class that includes one or two boundary points, to extend our realm into open intervals, we also need the following definition that classifies 4 types of models in terms of their properties on the boundary points. The following lemma will have us identify the four types of model.
-% \begin{definition} We categorize models defined on $(A,B)$ into the following 4 types\begin{enumerate}
-%     \item Type I: $\lim_{z\to A}I(z)=0$ and $\lim_{z\to B}I(z)\ne 0$
-%     \item Type II: $\lim_{z\to A}I(z)\ne 0$ and $\lim_{z\to B}I(z)=0$
-%     \item Type III: $\lim_{z\to A}I(z)= 0$ and $\lim_{z\to B}I(z)=0$
-%     \item Type IV: $\lim_{z\to A}I(z)\ne 0$ and $\lim_{z\to B}I(z)\ne0$
-% \end{enumerate}
-% \end{definition}
+ We have seen in previous sections of how ancillary functions can help solve the violated assumptions of \ref{2012}. We also pointed out that use of ancillary functions as a solution may result in more support points than desired. We would like to show in the following results that, for some functions defined on open interval, the added support points could be removed from the design and we will still ultimately have a design with minimal support. 
+ 
+Since our previous strategy tends to provide optimal design class that includes one or two boundary points, we use following definition to classify 4 types of models in terms of their properties on the boundary points. 
+\begin{definition} We categorize models defined on $(A,B)$ into the following 4 types\begin{enumerate}
+    \item Type I: $\lim_{z\to A}I(z)=0$ and $\lim_{z\to B}I(z)\ne 0$
+    \item Type II: $\lim_{z\to A}I(z)\ne 0$ and $\lim_{z\to B}I(z)=0$
+    \item Type III: $\lim_{z\to A}I(z)= 0$ and $\lim_{z\to B}I(z)=0$
+    \item Type IV: $\lim_{z\to A}I(z)\ne 0$ and $\lim_{z\to B}I(z)\ne0$
+\end{enumerate}
+\end{definition}
 
 % \begin{lemma} For nonlinear models with response $E(Y) = \eta(\theta,z)$, $z\in (A,B)$. If there exist $z^*\in [A,B]$ such that \[\lim_{z\to z^*}(\frac{\partial\eta(\theta,z)}{\partial \theta}) = 0\]
 % then $\lim_{z\to z^*}I(\theta,z)=0$
@@ -330,51 +330,58 @@ When $ p+1< k_1 \le2p+3$, we can write\begin{equation}
 % %  \[\lim_{z\to z^*}I(\theta,z) = \lim_{z\to z^*}(\frac{\partial\eta(\theta,z)}{\partial \theta})(\frac{\partial\eta(\theta,z)}{\partial \theta})^T = 0\]
 %  \end{proof}
 %  \end{lemma}
- 
- 
+
+\begin{lemma}\label{removepts}
+ For a regression model with a single regression variable $z$ defined on $(A,B)$. Consider subset $[A^*,B^*]\subset (A,B)$ , on which we form a complete class of design with \ref{2012} denoted by $S_1$ = \{$(z_1,w_1)$,$(z_2,w_2)$,$\ldots$, $(z_n,w_n)$\} where $A^*\le z_1,\le \ldots,\le z_n\le B^*$, then\begin{enumerate}
+     
+     \item If the model is of Type I , and $z_1=A^*$,then $S_1$ is dominated by \{$(z_2,w_1+w_2)$,$\ldots$, $(z_n,w_n)$\} where $A^*<z_2 \le,\ldots,\le z_n\le B^*$
+     \item If the model is of Type II , and $z_n=B^*$,then $S_1$ is dominated by \{$(z_1,w_1+w_n)$,$\ldots$, $(z_{n-1},w_{n-1})$\} where $A^*\le z_1 \le,\ldots,\le z_{n-1}< B^*$
+     \item If the model is of Type III , and $z_n=B^*$,then $S_1$ is dominated by a design with no support on $A^*$ or $B^*$.
+     \item In all other cases, no support points will be removed from $S_1$.
+ \end{enumerate}
+\end{lemma}
+
+From \ref{removepts}, we can see that it is possible for us to reduce the support for certain types of model. With this tool, the enlarged design with ancillary functions may be reduced back to minimal support. 
+
   
- ========================================================\\
- ===============  border of revision ======================\\
- ======================================================
- 
- 
 
  
 
-We now are able to extend the conclusion in \ref{2012} to models defined on open interval $(A,B)$ under following assumptions. \begin{enumerate}
-\item All functions $\Psi$ in the information matrix $C(\theta,z)$ are at least $k$th order differentiable on $(A,B)$.
-\item For $1\le l\le k-1$, the functions $f_{l,l}(z)$ have no roots in $(A,B)$.
-\end{enumerate} 
+% We now are able to extend the conclusion in \ref{2012} to models defined on open interval $(A,B)$ under following assumptions. \begin{enumerate}
+% \item All functions $\Psi$ in the information matrix $C(\theta,z)$ are at least $k$th order differentiable on $(A,B)$.
+% \item For $1\le l\le k-1$, the functions $f_{l,l}(z)$ have no roots in $(A,B)$.
+% \end{enumerate} 
 
 
-\begin{theorem}\label{2012open}
-For a regression model with a single regression variable $x$, let $z\in(A,B)$, $C(\theta,z)$, $\Psi_1,\ldots, \Psi_{k-1}$ and $\Psi_k^Q$ defined above. With  $F(z) = \prod_{l=1}^k f_{l,l}(z)$, suppose that either $F(z)$ or $-F(z)$ is positive definite for all $z\in (A,B)$. Then the following complete class results hold:\begin{enumerate}
-\item[(a)] For $k= 2n-1$, if Type II or Type III models have $F(z)>0$,  designs with at most $n-1$ support points form a complete class; if Type I or Type IV models have $F(z)>0$,  designs with at most $n$ support points form a complete class. 
-\item[(b)] For $k= 2n-1$, if Type I or Type III models have $-F(z)>0$,  designs with at most $n-1$ support points form a complete class; if Type II or Type IV models have $-F(z)>0$,  designs with at most $n$ support points form a complete class. 
-\item[(c)] For $k = 2n$, if Type III model have $F(z)>0$, designs with at most $n-1$ support points form a complete class; if Type I or Type II model have $F(z)>0$, designs with at most $n$ support points form a complete class; if Type IV model have $F(z)>0$, designs with at most $n+1$ support points form a complete class
-\item[(d)] For $k = 2n$, if models of any type have $-F(z)>0$, designs with at most $n$ support points form a complete class.
-\end{enumerate}
-\end{theorem}
-\begin{proof} 
-The proof is similar for the four conditions. We will here show for (a)  \\
-By \ref{2012}, if $k = 2n-1$ and $F(z)>0$, design with at most n support points form a complete class. Consider for any design $\xi = \{z_1,z_2,\ldots, z_n\}$, there exist $\tilde{\xi} = \{\tilde{z}_1,\tilde{z}_2,\ldots, \tilde{z}_{n-1}, B-\epsilon\}$, $\epsilon>0$ such that \[M(\xi)\le M(\tilde{\xi}) =\sum_i^{n-1} \tilde{w}_iI(\tilde{z}_i)+\tilde{w}_nI(B-\epsilon) \] 
-Since for Type II or Type III models,  $\lim_{z\to B}I(z)=0$, we have zero information at $B$. Without loss of generality, we could assign $w_n$ to $\tilde{z_1}$, which lead to a design $\{(\tilde{z}_1, \tilde{w}_1+\tilde{w}_n), (\tilde{z}_2, \tilde{w}_2),\ldots,(\tilde{z}_{n-1}, \tilde{w}_{n-1}) \}$. This design has $n-1$ support points. 
-For Type II or Type III models, $\lim_{z\to B}I(z)\ne0$ so we are not able to eliminate this point from design. The design with $n$ support points form a complete class.
-\end{proof}
+% \begin{theorem}\label{2012open}
+% For a regression model with a single regression variable $x$, let $z\in(A,B)$, $C(\theta,z)$, $\Psi_1,\ldots, \Psi_{k-1}$ and $\Psi_k^Q$ defined above. With  $F(z) = \prod_{l=1}^k f_{l,l}(z)$, suppose that either $F(z)$ or $-F(z)$ is positive definite for all $z\in (A,B)$. Then the following complete class results hold:\begin{enumerate}
+% \item[(a)] For $k= 2n-1$, if Type II or Type III models have $F(z)>0$,  designs with at most $n-1$ support points form a complete class; if Type I or Type IV models have $F(z)>0$,  designs with at most $n$ support points form a complete class. 
+% \item[(b)] For $k= 2n-1$, if Type I or Type III models have $-F(z)>0$,  designs with at most $n-1$ support points form a complete class; if Type II or Type IV models have $-F(z)>0$,  designs with at most $n$ support points form a complete class. 
+% \item[(c)] For $k = 2n$, if Type III model have $F(z)>0$, designs with at most $n-1$ support points form a complete class; if Type I or Type II model have $F(z)>0$, designs with at most $n$ support points form a complete class; if Type IV model have $F(z)>0$, designs with at most $n+1$ support points form a complete class
+% \item[(d)] For $k = 2n$, if models of any type have $-F(z)>0$, designs with at most $n$ support points form a complete class.
+% \end{enumerate}
+% \end{theorem}
+% \begin{proof} 
+% The proof is similar for the four conditions. We will here show for (a)  \\
+% By \ref{2012}, if $k = 2n-1$ and $F(z)>0$, design with at most n support points form a complete class. Consider for any design $\xi = \{z_1,z_2,\ldots, z_n\}$, there exist $\tilde{\xi} = \{\tilde{z}_1,\tilde{z}_2,\ldots, \tilde{z}_{n-1}, B-\epsilon\}$, $\epsilon>0$ such that \[M(\xi)\le M(\tilde{\xi}) =\sum_i^{n-1} \tilde{w}_iI(\tilde{z}_i)+\tilde{w}_nI(B-\epsilon) \] 
+% Since for Type II or Type III models,  $\lim_{z\to B}I(z)=0$, we have zero information at $B$. Without loss of generality, we could assign $w_n$ to $\tilde{z_1}$, which lead to a design $\{(\tilde{z}_1, \tilde{w}_1+\tilde{w}_n), (\tilde{z}_2, \tilde{w}_2),\ldots,(\tilde{z}_{n-1}, \tilde{w}_{n-1}) \}$. This design has $n-1$ support points. 
+% For Type II or Type III models, $\lim_{z\to B}I(z)\ne0$ so we are not able to eliminate this point from design. The design with $n$ support points form a complete class.
+% \end{proof}
 
 
 
-With \ref{2012open}, we are able to deal with models defined on open interval and eliminate the boundary points that provide 0 information asymptotically. \\
 
-The next issue to address is the resolution to failed assumptions. In the example of 2-parameter logistic model, the ancillary function enables us to use \ref{2012} with minimal support. In many other cases, the aid of ancillary functions will work at the price of getting a design with more support points. Below is an tentative strategy of choosing ancillary function  %The validity of ancillary functions is also shown. Suppose we already have the ancillary functions and $\tilde{F}(z)>0$ or $-\tilde{F}(z)>0$ 
+% With \ref{2012open}, we are able to deal with models defined on open interval and eliminate the boundary points that provide 0 information asymptotically. \\
 
+% The next issue to address is the resolution to failed assumptions. In the example of 2-parameter logistic model, the ancillary function enables us to use \ref{2012} with minimal support. In many other cases, the aid of ancillary functions will work at the price of getting a design with more support points. Below is an tentative strategy of choosing ancillary function  %The validity of ancillary functions is also shown. Suppose we already have the ancillary functions and $\tilde{F}(z)>0$ or $-\tilde{F}(z)>0$ 
+The following is a tentative procedure of which may be helpful for finding the ancillary functions. We'll demonstrate with examples of how this procedure is used in next section.
 
 \begin{theorem}\label{proc}(How to insert ancillary functions: still working)
 Given a nonlinear model, suppose for a function sequence $S_1 = \{\Psi_l(z), l = 1,\ldots,k\}$, neither $F(z)$ or $-F(z)$ is positive definite, we can use the following steps to insert ancillary functions to the sequence. Let $S = S_1$.
 \begin{enumerate}
-    \item Select a function $\phi(z)$ from $\{1, z, 1/z, e^z,e^{-z}\}$ that is the common factor of most $\Psi$ functions. Choose another one if it is linearly dependent to functions in $S$. If $1\not\in S$, let $\phi(z) = 1$. Update $S = S\cup\{\phi(z)\}$. Update $\tilde{C}(\theta,z)$ with $S$.
+    \item Select a function $\phi(z)$ that is the common factor of most $\Psi$ functions. Choose another one if it is linearly dependent to functions in $S$. If $1\not\in S$, let $\phi(z) = 1$. Update $S = S\cup\{\phi(z)\}$. Update $\tilde{C}(\theta,z)$ with $S$.
     \item Multiply each term of $S$ by least common multiples of the denominators, if any. Update $\tilde{C}(\theta,z)$ 
-    %\item Take Minimal common factors of the sequence. Start from adding factors shared among most $\Psi$ functions. It will , after matrix algebra, be placed before the lowest order term that contains that factor. Check $F(z)$, if not satisfying the assumptions continue until run out of factors.
+    \item Take Minimal common factors of the sequence. Start from adding factors shared among most $\Psi$ functions. It will , after matrix algebra, be placed before the lowest order term that contains that factor. Check $F(z)$, if not satisfying the assumptions continue until run out of factors.
     
     \item Clean up the functions so that they are linearly independent, leaving the terms of highest order as is. Update $S = {S,\phi(z)}$. Update $\tilde{C}(\theta,z)$ with $S$.
      \item Calculate $\tilde{F}(z)$. Check if $\tilde{F}(z)$ or $-\tilde{F}(z)$ is positive definite. Record $k_1$ as the number of functions added. If not, repeat 1-3.
@@ -392,24 +399,25 @@ Given a nonlinear model, suppose for a function sequence $S_1 = \{\Psi_l(z), l =
 
 
 
-\begin{corollary}(Closed interval, assumptions failed)
-For a regression model with a single regression variable $x$, let  $z\in[A,B]$, $C(\theta,z)$, $\Psi_1(z), \ldots,\Psi_{k-1}(z)$ and $\Psi_k^Q(z)$ be as in \ref{2012}. Assume all functions $\Psi_i(z)$, $i=1,..,k$ are at least $k$th order differentiable on $(A,B)$ element-wise. Also assume there exist at least one $l_0$, $1\le l_0\le k-1$, and $z^*\in [A,B]$, such that $f_{l_0,l_0}(z^*) = 0 $. Use $k_1$ ancillary functions to extend the function sequence to \{$\tilde{\Psi}_1(z), \ldots,\tilde{\Psi}_{k+k_1-1}(z), \tilde{\Psi}_{k+k_1}^Q(z)$\} as in \ref{proc}. Assume $\tilde{F}(z) = \prod_{l=1}^{k_1+k}\tilde{f}_{l,l}(z)$ with the new sequence. Suppose that either $\tilde{F}(z)$ or $-\tilde{F}(z)$ is positive definite for all $z\in [A,B]$. The following complete class results hold \begin{enumerate}
-\item[(a)] For $k+k_1= 2n-1$, if $\tilde{F}(z)>0$,  designs with at most $n$ support points, including B, form a complete class. 
-\item[(b)] For $k+k_1= 2n-1$, if $-\tilde{F}(z)>0$,  designs with at most $n$ support points, including A, form a complete class.
-\item[(c)] For $k+k_1 = 2n$, if $\tilde{F}(z)>0$,  designs with at most $n+1$ support points, including A and B, form a complete class.
-\item[(d)] For $k+k_1 = 2n$, if $-\tilde{F}(z)>0$,  designs with at most $n$ support points form a complete class.
+% \begin{corollary}(Closed interval, assumptions failed)
+% For a regression model with a single regression variable $x$, let  $z\in[A,B]$, $C(\theta,z)$, $\Psi_1(z), \ldots,\Psi_{k-1}(z)$ and $\Psi_k^Q(z)$ be as in \ref{2012}. Assume all functions $\Psi_i(z)$, $i=1,..,k$ are at least $k$th order differentiable on $(A,B)$ element-wise. Also assume there exist at least one $l_0$, $1\le l_0\le k-1$, and $z^*\in [A,B]$, such that $f_{l_0,l_0}(z^*) = 0 $. Use $k_1$ ancillary functions to extend the function sequence to \{$\tilde{\Psi}_1(z), \ldots,\tilde{\Psi}_{k+k_1-1}(z), \tilde{\Psi}_{k+k_1}^Q(z)$\} as in \ref{proc}. Assume $\tilde{F}(z) = \prod_{l=1}^{k_1+k}\tilde{f}_{l,l}(z)$ with the new sequence. Suppose that either $\tilde{F}(z)$ or $-\tilde{F}(z)$ is positive definite for all $z\in [A,B]$. The following complete class results hold \begin{enumerate}
+% \item[(a)] For $k+k_1= 2n-1$, if $\tilde{F}(z)>0$,  designs with at most $n$ support points, including B, form a complete class. 
+% \item[(b)] For $k+k_1= 2n-1$, if $-\tilde{F}(z)>0$,  designs with at most $n$ support points, including A, form a complete class.
+% \item[(c)] For $k+k_1 = 2n$, if $\tilde{F}(z)>0$,  designs with at most $n+1$ support points, including A and B, form a complete class.
+% \item[(d)] For $k+k_1 = 2n$, if $-\tilde{F}(z)>0$,  designs with at most $n$ support points form a complete class.
 
-\end{enumerate} 
+% \end{enumerate} 
 
-\end{corollary}
+% \end{corollary}
 
 
-Through above results, we can see that, nonlinear models that failed assumptions can use ancillary functions to find optimal design at the cost of including extra support on the boundary. Among these models, Type I, II and III models under certain conditions may enable us to remove the extra support points and achieve minimal support. We will demonstrate the combination of two main results in the next section.
+% Through above results, we can see that, nonlinear models that failed assumptions can use ancillary functions to find optimal design at the cost of including extra support on the boundary. Among these models, Type I, II and III models under certain conditions may enable us to remove the extra support points and achieve minimal support. We will demonstrate the combination of two main results in the next section.
 
 
 
 
 \section{More examples}
+
  \subsection{Beta-Poisson model}
 
 In  studies of binary dose response model, Beta-Poisson model is an important model \cite{haas1983}. The response $y$ follows a Bernoulli distribution with the expected success probability of the following form
@@ -496,7 +504,7 @@ z^2& 0\\
 
 \subsection{complementary log-log model } 
 
-Complementary log-log model is also a binary response model. The model is as follows,\[
+Complementary log-log model is also a binary response model. We have mentioned in the previous sections of why direct application of \ref{2012} fails for this model. Here we'll show how ancillary functions can help out. The model is as follows,\[
 P(y=1|x,\theta) = \eta(x,\theta)= 1-e^{-e^z}.
 \]where $z = \beta(x-\alpha)$. $x\in (-\infty,+\infty)$ and $z\in (-\infty,+\infty)$. Simple calculation shows that it is a Type III model. Consider $z$ as the surrogate of $x$ for design with range $[\epsilon, +\infty)$ for $\epsilon <0$. The information matrix based on a design $\xi = \{(z_i,w_i), i=1,\ldots,k\}$ will have the following form: \begin{equation}
 M(\xi) = \sum_{i=1}^{k} w_i PC(\theta,z_i) P^T, C(\theta,z_i) = \frac{e^{2z_i}}{e^{e^{z_i}}-1}\left( \begin{array}{cc}
@@ -507,15 +515,16 @@ z_i & z_i^2
 -\beta & 0\\
 0 & 1/\beta
 \end{array} \right).\] 
-Let $\phi(z) =  \frac{e^{2z}}{e^{e^z}-1}$. Following an idea similar to the Beta-Poisson model, we need to find a complete class of designs $\tilde{\xi} = \{(\tilde{z_i},\tilde{w_i}), i=1,\ldots,l\}$ that dominates $\xi$. To achieve this goal, it suffices to show that the off-diagonal terms and the first diagonal term of both matrices to be equal as follows,
-\begin{equation}
-\sum_{i=1}^{k} w_i \phi(z_i)z_i = \sum_{i=1}^{k} \tilde{w_i}  \phi(\tilde{z_i}) \tilde{z_i},\end{equation}  \begin{equation}
-\sum_{i=1}^{k} w_i  \phi(z_i)= \sum_{i=1}^{k} \tilde{w_i} \phi(\tilde{z_i}),\end{equation}
-and the last diagonal terms satisfy the following inequality \begin{equation}
-\sum_{i=1}^{k} w_i \phi(z_i)z_i^2 < \sum_{i=1}^{k} \tilde{w_i}\phi(\tilde{z_i})\tilde{z_i}^2.
-\end{equation}
+Let $\phi(z) =  \frac{e^{2z}}{e^{e^z}-1}$. 
+% Following an idea similar to the Beta-Poisson model, we need to find a complete class of designs $\tilde{\xi} = \{(\tilde{z_i},\tilde{w_i}), i=1,\ldots,l\}$ that dominates $\xi$. To achieve this goal, it suffices to show that the off-diagonal terms and the first diagonal term of both matrices to be equal as follows,
+% \begin{equation}
+% \sum_{i=1}^{k} w_i \phi(z_i)z_i = \sum_{i=1}^{k} \tilde{w_i}  \phi(\tilde{z_i}) \tilde{z_i},\end{equation}  \begin{equation}
+% \sum_{i=1}^{k} w_i  \phi(z_i)= \sum_{i=1}^{k} \tilde{w_i} \phi(\tilde{z_i}),\end{equation}
+% and the last diagonal terms satisfy the following inequality \begin{equation}
+% \sum_{i=1}^{k} w_i \phi(z_i)z_i^2 < \sum_{i=1}^{k} \tilde{w_i}\phi(\tilde{z_i})\tilde{z_i}^2.
+% \end{equation}
 
-The linearly independent terms of the above equations are $\phi(z)$, $z\phi(z)$, $z^2\phi(z)$. Following \ref{proc}, we first add 1 to the sequence. Note that the denominator of $\phi(z)$ is $e^{e^z}-1>0$, we multiply all above terms by this term and have $\{e^{e^z}-1,e^{2z}, ze^{2z}, z^2e^{2z}\}$. Neither $ F(z)$ or $ -F(z)$ positive for $z\in (-\infty,\infty)$, we continue to step 1 of \ref{proc}, and add another 1 and $e^z$. Finally, we ended up adding 3 terms to the sequence which becomes \{$\Psi_0(z) = 1$, $\Psi_1(z) = e^z$,$\Psi_2(z) = e^{2z}$,  $\Psi_3(z) = ze^{2z}$,$\Psi_4(z) = z^2e^{2z}$, $\Psi_5(z) = -(e^{e^z}-1)$\}.Note here information matrix is "expanded" and cleaned to  \[ \tilde{C}^*(\theta,z) = \phi(z)\left(\begin{array}{ccc}
+The linearly independent terms are 1, $\phi(z)$, $z\phi(z)$, $z^2\phi(z)$. Note that the denominator of $\phi(z)$ is $e^{e^z}-1>0$, we multiply all above terms by this term and have $\{e^{e^z}-1,e^{2z}, ze^{2z}, z^2e^{2z}\}$. Neither $ F(z)$ or $ -F(z)$ positive for $z\in (-\infty,\infty)$, we continue to step 1 of \ref{proc}, and add another 1 and $e^z$. Finally, we ended up adding 3 terms to the sequence which becomes \{$\Psi_0(z) = 1$, $\Psi_1(z) = e^z$,$\Psi_2(z) = e^{2z}$,  $\Psi_3(z) = ze^{2z}$,$\Psi_4(z) = z^2e^{2z}$, $\Psi_5(z) = -(e^{e^z}-1)$\}.Note here information matrix is "expanded" and cleaned to  \[ \tilde{C}^*(\theta,z) = \phi(z)\left(\begin{array}{ccc}
 e^{e^z}-1&1&e^{z}\\
 1&e^{2z} & ze^{2z}\\
 e^z& ze^{2z} & z^2e^{2z}
